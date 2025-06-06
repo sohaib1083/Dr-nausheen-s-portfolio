@@ -66,7 +66,7 @@ const Footer = () => {
               <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>                {[
                   { icon: <FaLinkedin />, label: 'LinkedIn', href: 'https://www.linkedin.com' },
                   { icon: <FaResearchgate />, label: 'ResearchGate', href: 'https://www.researchgate.net/profile/Nausheen-Alam' },
-                  { icon: <FaEnvelope />, label: 'Email', href: 'mailto:nausheenasarosh@hotmail.com' }
+                  { icon: <FaEnvelope />, label: 'Email', href: 'mailto:nausheen.alam@fuuast.edu.pk' }
                 ].map((social) => (
                   <IconButton 
                     key={social.label}
@@ -212,7 +212,7 @@ const Footer = () => {
                   Email:
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 500 }}>
-                  nausheenasarosh@hotmail.com
+                  nausheen.alam@fuuast.edu.pk
                 </Typography>
               </Box>
                 <Box sx={{ mb: 1 }}>

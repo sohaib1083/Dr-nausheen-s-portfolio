@@ -83,7 +83,7 @@ const Header = ({ toggleTheme, isDarkMode }: HeaderProps) => {
   };
 
   const contactInfo = [
-    { icon: <FaEnvelope size={16} />, text: 'nausheenasarosh@hotmail.com', href: 'mailto:nausheenasarosh@hotmail.com' },
+    { icon: <FaEnvelope size={16} />, text: 'nausheen.alam@fuuast.edu.pk', href: 'mailto:nausheen.alam@fuuast.edu.pk' },
     { icon: <FaPhone size={16} />, text: '+92 335 1244708', href: 'tel:+923351244708' },
   ];
 

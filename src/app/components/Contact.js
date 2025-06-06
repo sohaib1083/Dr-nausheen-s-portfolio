@@ -104,8 +104,8 @@ const Contact = () => {
     { 
       icon: <FaEnvelope size={24} />, 
       title: 'Email', 
-      value: 'nausheenasarosh@hotmail.com',
-      href: 'mailto:nausheenasarosh@hotmail.com',
+      value: 'nausheen.alam@fuuast.edu.pk',
+      href: 'nausheen.alam@fuuast.edu.pk',
       color: '#7c3aed'
     },    { 
       icon: <FaPhone size={24} />, 
