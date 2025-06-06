@@ -8,9 +8,15 @@ import {
   Divider, 
   useMediaQuery, 
   useTheme,
-  Tooltip 
+  Tooltip,
+  AppBar,
+  Toolbar,
+  Button,
+  Drawer,
+  List,
+  ListItem
 } from '@mui/material';
-import { FaEnvelope, FaPhone, FaLinkedin, FaTwitter, FaResearchgate, FaMoon, FaSun } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaLinkedin, FaTwitter, FaResearchgate, FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Header = ({ toggleTheme, isDarkMode }) => {
@@ -18,15 +24,29 @@ const Header = ({ toggleTheme, isDarkMode }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const navItems = ['Home', 'About', 'Achievements', 'Research', 'Publications', 'Contact'];
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollTop = window.scrollY;
       
-      if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
-        setShowHeader(false);
+      // Handle header visibility for desktop
+      if (!isMobile) {
+        if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+          setShowHeader(false);
+        } else {
+          setShowHeader(true);
+        }
+      }
+      
+      // Handle navbar background for mobile
+      if (currentScrollTop > 50) {
+        setScrolled(true);
       } else {
-        setShowHeader(true);
+        setScrolled(false);
       }
       
       setLastScrollTop(currentScrollTop);
@@ -37,7 +57,22 @@ const Header = ({ toggleTheme, isDarkMode }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollTop]);
+  }, [lastScrollTop, isMobile]);
+
+  const handleScrollToSection = (section: string) => {
+    const sectionId = section.toLowerCase();
+    const element = document.getElementById(sectionId);
+    
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    setMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   const contactInfo = [
     { icon: <FaEnvelope size={16} />, text: 'nausheenasarosh@hotmail.com', href: 'mailto:nausheenasarosh@hotmail.com' },

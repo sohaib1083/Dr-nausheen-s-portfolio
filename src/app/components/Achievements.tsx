@@ -54,7 +54,7 @@ const AchievementsSection = () => {
     },
     {
       title: "Assistant Professor",
-      subtitle: "Incharge Pharmacy",
+      subtitle: "Incharge Department of Pharmacology",
       organization: "FUUAST",
       year: "Present",
       category: "professional",
