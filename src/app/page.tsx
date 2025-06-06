@@ -1,103 +1,86 @@
-import Image from "next/image";
+'use client';
+import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import LoadingSpinner from './components/LoadingSpinner';
 
-export default function Home() {
+// Dynamic imports for better performance
+const Navbar = dynamic(() => import('./components/Navbar'), { 
+  loading: () => <LoadingSpinner message="Loading navigation..." /> 
+});
+const Hero = dynamic(() => import('./components/Hero'), { 
+  loading: () => <LoadingSpinner message="Loading hero section..." /> 
+});
+const Header = dynamic(() => import('./components/Header'), { 
+  loading: () => <LoadingSpinner message="Loading header..." /> 
+});
+const About = dynamic(() => import('./components/About'), { 
+  loading: () => <LoadingSpinner message="Loading about section..." /> 
+});
+const Achievements = dynamic(() => import('./components/Achievements'), { 
+  loading: () => <LoadingSpinner message="Loading achievements..." /> 
+});
+const Research = dynamic(() => import('./components/Research'), { 
+  loading: () => <LoadingSpinner message="Loading research projects..." /> 
+});
+const Publications = dynamic(() => import('./components/Publications'), { 
+  loading: () => <LoadingSpinner message="Loading publications..." /> 
+});
+const CallToAction = dynamic(() => import('./components/CallToAction'), { 
+  loading: () => <LoadingSpinner message="Loading..." /> 
+});
+const Contact = dynamic(() => import('./components/Contact'), { 
+  loading: () => <LoadingSpinner message="Loading contact information..." /> 
+});
+const Footer = dynamic(() => import('./components/Footer'), { 
+  loading: () => <LoadingSpinner message="Loading footer..." /> 
+});
+const ScrollToTop = dynamic(() => import('./components/ScrollToTop'), { 
+  loading: () => null 
+});
+
+const Home = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Initialize theme from localStorage if available, otherwise use system preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === 'dark');
+    } else {
+      setIsDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+  }, []);
+
+  // Update the document's class when theme changes
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark-theme');
+    } else {
+      document.documentElement.classList.remove('dark-theme');
+    }
+    // Save preference to localStorage
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <>
+      <Header toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+      {/* Navbar is integrated with Header to avoid duplication */}
+      <Hero />
+      <About />
+      <Achievements />
+      <Research />
+      <Publications />
+      <CallToAction />
+      <Contact />
+      <Footer />
+      <ScrollToTop />
+    </>
   );
-}
+};
+
+export default Home;
