@@ -90,10 +90,8 @@ const AboutSection = () => {
               Dedicated to advancing knowledge through innovative research and inspiring the next generation of scholars.
             </Typography>
           </motion.div>
-        </Box>
-        
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+        </Box>          <Grid container spacing={4}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -158,10 +156,9 @@ const AboutSection = () => {
                   </Typography>
                 </Box>
               </Box>
-            </motion.div>
-          </Grid>
+            </motion.div>          </Grid>
           
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -209,11 +206,9 @@ const AboutSection = () => {
               
               <Typography variant="h5" gutterBottom sx={{ mb: 3, fontWeight: 600 }}>
                 Career Highlights
-              </Typography>
-              
-              <Grid container spacing={3}>
+              </Typography>                <Grid container spacing={3}>
                 {stats.map((stat, index) => (
-                  <Grid item xs={6} sm={3} key={stat.label}>
+                  <Grid size={{ xs: 6, sm: 3 }} key={stat.label}>
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}

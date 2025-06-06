@@ -227,12 +227,10 @@ const Hero = () => {  const heroRef = useRef(null);
             }}
           />
         </motion.div>
-      </Box>
-
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+      </Box>      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={7}>
-            <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>              <motion.div
+          <Grid size={{ xs: 12, md: 7 }}>
+            <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}><motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.7 }}
@@ -436,11 +434,11 @@ const Hero = () => {  const heroRef = useRef(null);
                     </motion.div>
                   ))}
                 </Box>
-              </motion.div>
-            </Box>
+              </motion.div>            </Box>
           </Grid>
           
-          <Grid item xs={12} md={5}>            <motion.div
+          <Grid size={{ xs: 12, md: 5 }}>
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ 

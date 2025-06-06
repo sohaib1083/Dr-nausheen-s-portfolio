@@ -35,10 +35,10 @@ const Footer = () => {
         px: { xs: 2, sm: 3, md: 0 }
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 3, sm: 4, md: 4 }}>
+      <Container maxWidth="lg">        <Grid container spacing={{ xs: 3, sm: 4, md: 4 }}>
           {/* About Column */}
-          <Grid item xs={12} sm={6} md={4}>            <motion.div
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -63,7 +63,8 @@ const Footer = () => {
                 Specializing in neuropharmacology, cognitive enhancement, and psychostimulant research.
               </Typography>
               
-              <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>                {[
+              <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+                {[
                   { icon: <FaLinkedin />, label: 'LinkedIn', href: 'https://www.linkedin.com' },
                   { icon: <FaResearchgate />, label: 'ResearchGate', href: 'https://www.researchgate.net/profile/Nausheen-Alam' },
                   { icon: <FaEnvelope />, label: 'Email', href: 'mailto:nausheen.alam@fuuast.edu.pk' }
@@ -89,10 +90,10 @@ const Footer = () => {
                 ))}
               </Box>
             </motion.div>
-          </Grid>
-          
+          </Grid>          
           {/* Quick Links */}
-          <Grid item xs={6} sm={3} md={2}>            <motion.div
+          <Grid size={{ xs: 6, sm: 3, md: 2 }}>
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -141,10 +142,10 @@ const Footer = () => {
                 ))}
               </Box>
             </motion.div>
-          </Grid>
-          
+          </Grid>          
           {/* Useful Links */}
-          <Grid item xs={6} sm={3} md={2}>            <motion.div
+          <Grid size={{ xs: 6, sm: 3, md: 2 }}>
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -195,10 +196,10 @@ const Footer = () => {
                 ))}
               </Box>
             </motion.div>
-          </Grid>
-          
+          </Grid>          
           {/* Contact Info */}
-          <Grid item xs={12} sm={6} md={4}>            <motion.div
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

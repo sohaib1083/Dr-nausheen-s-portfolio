@@ -67,9 +67,8 @@ const publicationData = [
   }
 ];
 
-const PublicationsSection = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedKeywords, setSelectedKeywords] = useState([]);
+const PublicationsSection = () => {  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
   
   const allKeywords = [...new Set(publicationData.flatMap(pub => pub.keywords))];
   
@@ -78,14 +77,14 @@ const PublicationsSection = () => {
       pub.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
       pub.authors.toLowerCase().includes(searchTerm.toLowerCase()) ||
       pub.journal.toLowerCase().includes(searchTerm.toLowerCase());
-      
+
     const matchesKeywords = selectedKeywords.length === 0 || 
       selectedKeywords.some(keyword => pub.keywords.includes(keyword));
       
     return matchesSearch && matchesKeywords;
   });
   
-  const handleKeywordToggle = (keyword) => {
+  const handleKeywordToggle = (keyword: string) => {
     if (selectedKeywords.includes(keyword)) {
       setSelectedKeywords(selectedKeywords.filter(k => k !== keyword));
     } else {
@@ -93,7 +92,7 @@ const PublicationsSection = () => {
     }
   };
   
-  const handleCopyLink = (doi) => {
+  const handleCopyLink = (doi: string) => {
     navigator.clipboard.writeText(`https://doi.org/${doi}`);
     // In real app, add toast notification here
   };
@@ -165,11 +164,9 @@ const PublicationsSection = () => {
               Explore my academic contributions to the field through published research papers.
             </Typography>
           </motion.div>
-        </Box>
-
-        <Box sx={{ mb: 5 }}>
+        </Box>        <Box sx={{ mb: 5 }}>
           <Grid container spacing={3} alignItems="center">
-            <Grid item xs={12} md={8}>
+            <Grid size={{ xs: 12, md: 8 }}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -202,9 +199,8 @@ const PublicationsSection = () => {
                     }
                   }}
                 />
-              </motion.div>
-            </Grid>
-            <Grid item xs={12} md={4} sx={{ textAlign: { xs: 'left', md: 'right' } }}>
+              </motion.div>            </Grid>
+            <Grid size={{ xs: 12, md: 4 }} sx={{ textAlign: { xs: 'left', md: 'right' } }}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -240,12 +236,10 @@ const PublicationsSection = () => {
               />
             </motion.div>
           ))}
-        </Box>
-
-        <Box>
+        </Box>        <Box>
           <Grid container spacing={3}>
             {filteredPublications.map((publication, index) => (
-              <Grid item xs={12} key={publication.title}>
+              <Grid size={{ xs: 12 }} key={publication.title}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -263,10 +257,9 @@ const PublicationsSection = () => {
                         backgroundColor: 'rgba(124, 58, 237, 0.02)',
                       }
                     }}
-                  >
-                    <CardContent sx={{ p: 3 }}>
+                  >                    <CardContent sx={{ p: 3 }}>
                       <Grid container spacing={2}>
-                        <Grid item xs={12} md={8}>
+                        <Grid size={{ xs: 12, md: 8 }}>
                           <Typography 
                             variant="h6" 
                             component="h3" 
@@ -309,11 +302,10 @@ const PublicationsSection = () => {
                                   fontSize: '0.7rem'
                                 }}
                               />
-                            ))}
-                          </Box>
+                            ))}                          </Box>
                         </Grid>
                         
-                        <Grid item xs={12} md={4} sx={{ 
+                        <Grid size={{ xs: 12, md: 4 }} sx={{ 
                           display: 'flex', 
                           flexDirection: 'column',
                           alignItems: { xs: 'flex-start', md: 'flex-end' },
