@@ -44,7 +44,7 @@ const AchievementsSection = () => {
       title: "Ph.D. in Pharmacology", 
       subtitle: "Doctoral Degree",
       organization: "University of Karachi",
-      year: "2017",
+      year: "2014",
       category: "academic",
       description: "Completed doctoral studies with highest CGPA in department, specializing in neuropharmacology and psychostimulant research.",
       icon: <FaUniversity size={28} />,

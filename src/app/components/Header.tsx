@@ -40,8 +40,8 @@ const Header = ({ toggleTheme, isDarkMode }) => {
   }, [lastScrollTop]);
 
   const contactInfo = [
-    { icon: <FaEnvelope size={16} />, text: 'dr.nausheen@email.com', href: 'mailto:dr.nausheen@email.com' },
-    { icon: <FaPhone size={16} />, text: '+123 456 7890', href: 'tel:+1234567890' },
+    { icon: <FaEnvelope size={16} />, text: 'nausheenasarosh@hotmail.com', href: 'mailto:nausheenasarosh@hotmail.com' },
+    { icon: <FaPhone size={16} />, text: '+92 335 1244708', href: 'tel:+923351244708' },
   ];
 
   const socialIcons = [
