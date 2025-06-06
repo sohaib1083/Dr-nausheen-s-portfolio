@@ -8,7 +8,7 @@ import { useInView } from 'framer-motion';
 const AboutSection = () => {
   const controls = useAnimation();
     const stats = [
-    { value: 15, label: 'Years Experience', icon: <FaUniversity size={24} /> },
+    { value: 25, label: 'Years Experience', icon: <FaUniversity size={24} /> },
     { value: 38, label: 'Publications', icon: <FaBookOpen size={24} /> },
     { value: 25, label: 'Research Projects', icon: <FaFlask size={24} /> },
     { value: 155, label: 'Citations', icon: <FaChalkboardTeacher size={24} /> },
@@ -153,6 +153,7 @@ const AboutSection = () => {
                   </Typography>
                   <Typography variant="body2">
                     Assistant Professor of Pharmacology<br />
+                    Incharge Department of Pharmacology<br />
                     Federal Urdu University, Karachi
                   </Typography>
                 </Box>
